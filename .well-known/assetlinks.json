@@ -1,8 +1,18 @@
-[{
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target": {
-        "namespace": "android_app",
-        "package_name": "ir.sus4dotir.faravanio",
-        "sha256_cert_fingerprints": ["74:C0:32:EC:8C:25:12:A0:EC:28:3F:A6:18:8A:E6:5A:F4:03:CE:E3:56:7A:8F:2A:7E:09:31:21:B5:B1:B5:07"]
-      }
-    }]
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "ir.sus4dotir.faravanio",
+      "sha256_cert_fingerprints": ["74:C0:32:EC:8C:25:12:A0:EC:28:3F:A6:18:8A:E6:5A:F4:03:CE:E3:56:7A:8F:2A:7E:09:31:21:B5:B1:B5:07"]
+    }
+  },
+  {
+    "relation": ["check_validation"],
+    "target": {
+      "namespace": "cafebazaar_twa",
+      "package_name": "ir.sus4dotir.faravanio",
+      "sha256_cert_fingerprints": ["74:C0:32:EC:8C:25:12:A0:EC:28:3F:A6:18:8A:E6:5A:F4:03:CE:E3:56:7A:8F:2A:7E:09:31:21:B5:B1:B5:07"]
+    }
+  }
+]
