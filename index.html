@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f766e">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>فراوانیو</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef6f3;--card:#fff;--tx:#12302a;--mut:#5d7b74;--pr:#0f766e;--pr2:#14b8a6;--ac:#e0a812;--bd:#d9e8e3;--sh:0 8px 24px rgba(15,118,110,.10);--glass:rgba(238,246,243,.82);--inp:#f3f8f6;--onpr:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1514;--card:#13262a;--tx:#e6f2ef;--mut:#8fb0a9;--pr:#2dd4bf;--pr2:#14b8a6;--ac:#f0c040;--bd:#22403b;--sh:0 8px 24px rgba(0,0,0,.35);--glass:rgba(10,21,20,.82);--inp:#0e1d1f;--onpr:#06211d;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0a1514;--card:#13262a;--tx:#e6f2ef;--mut:#8fb0a9;--pr:#2dd4bf;--pr2:#14b8a6;--ac:#f0c040;--bd:#22403b;--sh:0 8px 24px rgba(0,0,0,.35);--glass:rgba(10,21,20,.82);--inp:#0e1d1f;--onpr:#06211d;color-scheme:dark}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%}
+body{background:var(--bg);background-image:radial-gradient(420px 320px at 95% -5%,rgba(20,184,166,.22),transparent 70%),radial-gradient(380px 320px at -10% 45%,rgba(224,168,18,.14),transparent 70%);background-attachment:fixed;color:var(--tx);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.8}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+#app{max-width:520px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;padding:0 14px 14px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;display:flex;align-items:center;gap:10px;padding:12px 0;margin-bottom:6px;background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+header h1{font-size:21px;font-weight:800;margin:0;flex:1}
+.back{background:var(--card);border:1px solid var(--bd);color:var(--tx);border-radius:14px;padding:3px 12px;font:inherit;font-size:14px;cursor:pointer;box-shadow:var(--sh)}
+.pts{background:linear-gradient(135deg,#f5c542,#e08a12);color:#2a1c00;border-radius:20px;padding:2px 12px;font-weight:800;font-size:13px;box-shadow:0 4px 12px rgba(224,138,18,.35)}
+main{flex:1}
+main>*{animation:up .45s ease both}
+main>*:nth-child(2){animation-delay:.06s}main>*:nth-child(3){animation-delay:.12s}main>*:nth-child(4){animation-delay:.18s}main>*:nth-child(5){animation-delay:.24s}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:22px;padding:16px;margin-bottom:14px;box-shadow:var(--sh)}
+.card h3{margin:0 0 6px;font-size:16px;font-weight:800}
+.card h2{font-weight:800}
+.mut{color:var(--mut);font-size:13px}
+.banner{background:linear-gradient(135deg,#0f766e,#14b8a6 60%,#34d399);color:#fff;border-radius:26px;padding:18px;margin-bottom:16px;box-shadow:0 12px 28px rgba(15,118,110,.35);position:relative;overflow:hidden}
+.banner::after{content:"";position:absolute;width:170px;height:170px;border-radius:50%;background:rgba(255,255,255,.14);top:-60px;left:-40px}
+.bt{display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:1}
+.bt small{display:block;opacity:.85;font-size:12px;line-height:1.2}
+.bt b{font-size:44px;line-height:1;font-weight:800}
+.bs{background:rgba(255,255,255,.22);border-radius:20px;padding:2px 14px;font-weight:700;font-size:14px}
+.banner .bar{background:rgba(255,255,255,.28);margin:12px 0 6px;position:relative;z-index:1}
+.banner .bar div{background:#fff}
+.banner p{margin:0;font-size:13px;opacity:.95;position:relative;z-index:1}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{background:var(--card);border:1px solid var(--bd);border-radius:22px;padding:16px 8px 12px;text-align:center;font:inherit;color:var(--tx);cursor:pointer;box-shadow:var(--sh);transition:transform .15s;animation:up .5s ease both}
+.tile:active{transform:scale(.95)}
+.tile i{display:grid;place-items:center;width:58px;height:58px;margin:0 auto 6px;border-radius:20px;font-style:normal;font-size:28px;background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 8px 16px color-mix(in srgb,var(--c2) 40%,transparent)}
+.tile span{font-size:13px;font-weight:700}
+.btn{background:linear-gradient(135deg,var(--pr),var(--pr2));color:var(--onpr);border:0;border-radius:16px;padding:11px 18px;font:inherit;font-weight:700;cursor:pointer;display:inline-block;text-decoration:none;box-shadow:0 8px 18px rgba(20,184,166,.32);transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn.full{width:100%;text-align:center;margin-top:4px}
+input,textarea,select{width:100%;background:var(--inp);color:var(--tx);border:1.5px solid var(--bd);border-radius:14px;padding:11px;font:inherit;margin:4px 0;outline:0;transition:border-color .2s,box-shadow .2s}
+input:focus,textarea:focus{border-color:var(--pr2);box-shadow:0 0 0 4px rgba(20,184,166,.18)}
+textarea{min-height:84px;resize:vertical}
+.item{border-bottom:1px dashed var(--bd);padding:9px 0;font-size:14px}
+.item:last-child{border:0}
+.chk{display:flex;gap:12px;align-items:center;padding:11px 12px;margin:6px 0;background:var(--inp);border-radius:16px;cursor:pointer;transition:background .2s}
+.chk i{width:26px;height:26px;border:2px solid var(--pr2);border-radius:9px;display:grid;place-items:center;font-style:normal;color:#fff;flex:none;transition:all .2s}
+.chk.on{background:color-mix(in srgb,var(--pr2) 14%,var(--card))}
+.chk.on i{background:linear-gradient(135deg,var(--pr),var(--pr2));border-color:transparent}
+.chk.on span{text-decoration:line-through;color:var(--mut)}
+.bar{height:10px;background:var(--bd);border-radius:6px;overflow:hidden}
+.bar div{height:100%;background:linear-gradient(90deg,#f5c542,#e08a12);border-radius:6px;transition:width .5s}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat{text-align:center;background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:12px 6px;box-shadow:var(--sh)}
+.stat b{font-size:26px;display:block;color:var(--pr);line-height:1.5}
+.orb{width:130px;height:130px;border-radius:50%;margin:18px auto;background:radial-gradient(circle at 35% 30%,#fff7c2,var(--ac) 40%,var(--pr2));box-shadow:0 0 0 14px rgba(20,184,166,.12),0 0 40px rgba(240,192,64,.5);animation:br 8s ease-in-out infinite}
+@keyframes br{0%,100%{transform:scale(.72)}50%{transform:scale(1.12)}}
+.hero{text-align:center;padding:22px 12px}
+.hero .big{display:grid;place-items:center;width:84px;height:84px;margin:0 auto 8px;font-size:44px;border-radius:50%;background:radial-gradient(circle,rgba(20,184,166,.22),rgba(20,184,166,.04));box-shadow:0 0 0 8px rgba(20,184,166,.07)}
+.hero h2{margin:4px 0}
+.st{display:flex;gap:10px;align-items:center;padding:6px 0;font-size:14px}
+.st i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:12px;background:var(--inp);border:2px solid var(--bd);flex:none}
+.st.ok i{background:var(--pr);color:var(--onpr);border-color:transparent}
+.st.cur{font-weight:800}.st.cur i{border-color:var(--pr2)}
+.bdg.off{opacity:.5;filter:grayscale(1)}
+#ts{position:fixed;left:0;right:0;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:none}
+.toast{background:var(--card);color:var(--tx);border:1px solid var(--pr2);border-radius:16px;padding:9px 16px;font-size:14px;font-weight:700;box-shadow:var(--sh);max-width:calc(100% - 28px);animation:up .4s ease both}
+footer{text-align:center;margin:10px auto 4px;padding:5px 14px;border-radius:20px;background:var(--card);border:1px solid var(--bd);color:var(--mut);font-size:11px;direction:ltr;letter-spacing:.4px}
+</style>
+</head>
+<body>
+<div id="app"><header id="hd"></header><main id="mn"></main><footer>Developed by SM SADR | Powered by SMS_FX</footer></div>
+<script>
+var D=function(d){d=d||new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+var S={pts:0,days:{},goals:[],journal:[],seen:0,money:{n:0,last:'',best:0,resets:0,msg:0,log:[]},j:{n:0,last:'',log:[]},bd:{},wl:[]};
+try{var raw=localStorage.getItem('faravanio');if(raw)S=Object.assign(S,JSON.parse(raw))}catch(e){}
+function save(){try{localStorage.setItem('faravanio',JSON.stringify(S))}catch(e){}}
+function day(){var d=D();if(!S.days[d])S.days[d]={grat:[],m:[],viz:0,act:0};return S.days[d]}
+function add(n){S.pts+=n;day().act=1;save();checkB()}
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function val(id){return document.getElementById(id).value.trim()}
+var M=['سه مورد قدردانی بنویس','یک جمله فراوانی را با صدای بلند بخوان','پول امروزت را خرج و ثبت کن','یک دقیقه هدفت را تصویرسازی کن','یک موفقیت امروزت را ثبت کن'];
+var AF=['من شایسته‌ی فراوانی هستم و آن را با آغوش باز می‌پذیرم.','هر روز درهای تازه‌ای از فرصت به رویم باز می‌شود.','من با قدردانی، جریان فراوانی را در زندگی‌ام بیدار می‌کنم.','آنچه لازم دارم، در زمان درست به سمتم می‌آید.','من خالق زندگی پر از برکت و آرامش خودم هستم.','پول و فرصت‌ها با آسانی و شادی به من می‌رسند.','امروز یک قدم به هدفم نزدیک‌ترم.'];
+var BL=['پول به‌سختی به دست می‌آید','من لایق ثروت نیستم','پولدارها آدم‌های خوبی نیستند','هیچ‌وقت به اندازه کافی نخواهم داشت','موفقیت مخصوص دیگران است','بدون فشار و استرس چیزی به دست نمی‌آید'];
+var T={home:'🌱 فراوانیو',welcome:'خوش آمدی',daily:'تمرین روزانه',money:'مسیر ۳۶۰ روزه',goals:'هدف و تصویرسازی',dreams:'دفترچه آرزوها و اهداف',journal:'دفترچه موفقیت‌ها',about:'درباره بازی',badges:'نشان‌ها',smsfx:'SMS_FX'};
+var cur=S.seen?'home':'welcome',timer=null;
+function lvl(){return Math.floor(S.pts/100)+1}
+function go(v){clearInterval(timer);vizRun=false;mcf=0;ged=-1;dsel=0;cur=v;render();window.scrollTo(0,0)}
+function render(){
+ var h=document.getElementById('hd'),m=document.getElementById('mn');
+ h.innerHTML=(cur!=='home'&&cur!=='welcome'?'<button class="back" onclick="go(\'home\')">‹ بازگشت</button>':'')+'<h1>'+T[cur]+'</h1><span class="pts">⭐ '+S.pts+'</span>';
+ m.innerHTML=V[cur]();
+}
+var V={};
+V.welcome=function(){return '<div class="card hero"><div class="big">🌱</div><h2>به فراوانیو خوش آمدی</h2><p class="mut">بازی کوچک روزانه برای پرورش ذهنیت فراوانی: قدردانی، پول مجازی روزانه، هدف‌گذاری، تصویرسازی و ثبت دستاوردها. هر تمرین امتیاز می‌دهد و سطح تو بالا می‌رود.</p><button class="btn full" onclick="S.seen=1;save();go(\'home\')">شروع سفر</button></div>'};
+V.home=function(){var t=day(),fa=function(n){return Number(n).toLocaleString('fa-IR')};
+ var tl=[['daily','🙏','تمرین روزانه','#5eead4','#0f766e'],['money','🧭','مسیر ۳۶۰ روزه','#fcd34d','#d97706'],['goals','🎯','هدف و تصویرسازی','#fda4af','#e11d48'],['dreams','📒','دفترچه آرزوها و اهداف','#93c5fd','#2563eb'],['journal','📖','دفترچه موفقیت','#c4b5fd','#7c3aed'],['badges','🏅','نشان‌ها','#fde68a','#ca8a04'],['about','ℹ️','درباره بازی','#cbd5e1','#64748b'],['smsfx','📈','SMS_FX','#fdba74','#ea580c']];
+ return '<div class="banner"><div class="bt"><div><small>سطح</small><b>'+fa(lvl())+'</b></div><div class="bs">⭐ '+fa(S.pts)+' امتیاز</div></div><div class="bar"><div style="width:'+(S.pts%100)+'%"></div></div><p>'+fa(100-S.pts%100)+' امتیاز تا سطح بعد · '+fa(S.wl.filter(function(w){return w.p<100}).length)+' هدف در جریان</p></div><div class="grid">'+tl.map(function(x,i){return '<button class="tile" style="--c1:'+x[3]+';--c2:'+x[4]+';animation-delay:'+(i*45)+'ms" onclick="go(\''+x[0]+'\')"><i>'+x[1]+'</i><span>'+x[2]+'</span></button>'}).join('')+'</div>'};
+V.daily=function(){var t=day(),a=AF[new Date().getDate()%AF.length];
+ var list=t.grat.map(function(g){return '<div class="item">🙏 '+esc(g)+'</div>'}).join('');
+ return '<div class="card"><h3>جمله فراوانی امروز</h3><p style="font-size:17px;margin:4px 0">«'+a+'»</p><p class="mut">آن را آرام و با حس خوب تکرار کن.</p></div><div class="card"><h3>قدردانی امروز</h3><p class="mut">برای چه چیزی سپاسگزاری؟</p>'+list+(t.grat.length>=5?'<p class="mut" style="margin:10px 0 0">امروز به سقف ۵ مورد رسیدی. فردا دوباره بنویس 🌿</p>':'<input id="g" placeholder="امروز سپاسگزارم برای… ('+(5-t.grat.length).toLocaleString('fa-IR')+' مورد باقی مانده)"><button class="btn full" onclick="addG()">ثبت قدردانی (+۱۰)</button>')+'</div>'};
+function addG(){var v=val('g');if(!v||day().grat.length>=5)return;day().grat.push(v);add(10);go('daily')}
+var A=(function(){var lo=1,hi=1.2,r,i,k,t,p,v,a=[];for(i=0;i<200;i++){r=(lo+hi)/2;t=0;p=1e6;for(k=0;k<360;k++){t+=p;p*=r}if(t>1e12)hi=r;else lo=r}
+ r=lo;p=1e6;t=0;for(k=0;k<359;k++){v=Math.round(p/1000)*1000;a.push(v);t+=v;p*=r}a.push(1e12-t);return a})();
+function fmt(x){return Number(x).toLocaleString('fa-IR')+' تومان'}
+function tot(n){var s=0;for(var i=0;i<n;i++)s+=A[i];return s}
+function yest(){var d=new Date();d.setDate(d.getDate()-1);return D(d)}
+function chk(){var m=S.money;if(m.n<360&&m.last&&m.last!==D()&&m.last!==yest()&&!m.miss){m.miss=1;save()}}
+V.money=function(){chk();var m=S.money,done=m.last===D(),fin=m.n>=360;
+ var si=fin?6:stg(m.n),tk=fin?['','']:taskFor(m.n),sc='<div class="card"><h3>مراحل مسیر ۳۶۰ روزه</h3>'+ST.map(function(s,i){var a=i<si,c=i===si,from=i?ST[i-1][1]+1:1;return '<div class="st'+(a?' ok':c?' cur':'')+'"><i>'+(a?'✓':faN(i+1))+'</i><div>'+s[0]+'<div class="mut" style="font-size:12px">روز '+faN(from)+' تا '+faN(s[1])+'</div></div></div>'}).join('')+'<p class="mut" style="margin:8px 0 0;font-size:12px">پایان هر مرحله ۳۰ امتیاز و هر ۳۰ روز ۲۰ امتیاز پاداش دارد.</p></div>',old=(S.j&&S.j.log&&S.j.log.length)?'<div class="card" style="margin-top:12px"><h3>پاسخ‌های مسیر ۲۱ روزهٔ قبلی</h3>'+S.j.log.map(function(e){return '<div class="item">🧭 '+esc(e.t)+'<div class="mut">'+e.d+'</div></div>'}).join('')+'</div>':'';
+ var rb=(m.n>0&&!fin&&!m.miss)?(mcf?'<div style="margin-top:10px;padding:10px;border:1.5px dashed var(--bd);border-radius:14px"><p style="margin:0 0 8px;font-size:13px">مطمئنی؟ پیشرفت فعلی ('+faN(m.n)+' روز) در تاریخچه ثبت می‌شود و بازی از روز ۱ شروع می‌شود.</p><button class="btn" onclick="resetM(\'manual\')">بله، بازنشانی</button> <button class="btn" style="background:var(--inp);color:var(--tx);box-shadow:none" onclick="askR(0)">انصراف</button></div>':'<button class="btn" style="margin-top:10px;background:var(--inp);color:var(--tx);box-shadow:none" onclick="askR(1)">بازنشانی بازی</button>'):'';
+ var hh=(m.hist&&m.hist.length)?'<div class="card" style="margin-top:12px"><h3>دوره‌های قبلی</h3>'+m.hist.slice().reverse().slice(0,10).map(function(h){return '<div class="item">🗂 '+faN(h.n)+' روز · '+fmt(h.tot)+'<div class="mut">'+({miss:'یک روز جا افتاد',manual:'بازنشانی دستی',done:'کامل شد 🏆'}[h.why]||'')+' · '+h.d+'</div></div>'}).join('')+'</div>':'';
+ var l=m.log.slice().reverse().slice(0,20).map(function(e){return '<div class="item">📅 روز '+faN(e.i)+': '+fmt(e.a)+(e.r?'<br>🧭 '+esc(e.r):'')+'<br>💸 '+esc(e.t)+'<div class="mut">'+e.d+'</div></div>'}).join('');
+ var top=m.miss&&!fin?'<div class="card hero"><div class="big">⏳</div><h3>یک روز جا افتاد</h3><p class="mut">پیشرفت این دوره ('+faN(m.n)+' روز) در تاریخچه می‌ماند و بازی از روز ۱ شروع می‌شود.</p><button class="btn full" onclick="resetM(\'miss\')">قبول و شروع از روز ۱</button></div>':'';
+ var box;
+ if(m.miss&&!fin)box='';else if(fin)box='<div class="card hero"><div class="big">🏆</div><h2>تبریک! مسیر ۳۶۰ روزه کامل شد</h2><p class="mut">مجموع پول مجازی تو:</p><h2 style="color:var(--pr);margin:0">'+fmt(tot(360))+'</h2><p class="mut">یعنی ۱ تریلیون تومان</p><button class="btn full" onclick="restartM()">شروع دوباره</button></div>';
+ else if(done)box='<div class="card hero"><div class="big">✅</div><h3>امروز ثبت شد</h3><p class="mut">فردا: روز '+faN(m.n+1)+' · '+taskFor(m.n)[0]+'<br>مبلغ فردا:</p><h2 style="color:var(--pr);margin:0">'+fmt(A[m.n])+'</h2></div>';
+ else box='<div class="card"><div class="mut" style="font-size:12px">مرحلهٔ '+faN(si+1)+' از ۶ · '+ST[si][0]+'</div><h3>روز '+faN(m.n+1)+' از ۳۶۰ · '+tk[0]+'</h3><p style="margin:4px 0 6px">'+tk[1]+'</p><textarea id="pt" placeholder="پاسخت به این تمرین…"></textarea><p class="mut" style="margin:8px 0 0">پول مجازی امروز تو:</p><h2 style="color:var(--pr);margin:2px 0 8px">'+fmt(A[m.n])+'</h2><textarea id="mt" placeholder="این مبلغ را چطور خرج کردی؟ دقیق بنویس…"></textarea><button class="btn full" onclick="addM()">ثبت روز (+'+faN(ptsFor(m.n))+')</button></div>';
+ return top+box+sc+'<div class="card"><h3>کیف پول</h3><h2 style="color:var(--pr);margin:0 0 8px">'+fmt(tot(m.n))+'</h2><div class="bar"><div style="width:'+(m.n/360*100)+'%"></div></div><p class="mut" style="margin:6px 0 0">'+m.n.toLocaleString('fa-IR')+' روز از ۳۶۰ روز · هدف: ۱ تریلیون تومان</p>'+rb+'</div><div class="card"><p class="mut" style="margin:0">مبلغ هر روز حدود ۲٫۹٪ بیشتر از دیروز است و تقریباً هر ۲۴ روز دو برابر می‌شود. از ۱ میلیون تومان در روز اول شروع می‌کنی و در پایان ۳۶۰ روز مجموع می‌شود ۱ تریلیون. هر روز علاوه بر ثبت خرج، به تمرین همان روز از مسیر ۶ مرحله‌ای پاسخ می‌دهی. اگر یک روز را فراموش کنی، بعد از تأیید خودت بازی از اول شروع می‌شود و دورهٔ قبلی در تاریخچه می‌ماند. این پول مجازی است و فقط برای تمرین ذهنیت فراوانی.</p></div><div class="stats"><div class="stat"><b>'+m.n.toLocaleString('fa-IR')+'</b><span class="mut">روز پیاپی</span></div><div class="stat"><b>'+m.best.toLocaleString('fa-IR')+'</b><span class="mut">رکورد</span></div></div>'+(l?'<div class="card" style="margin-top:12px"><h3>یادداشت‌های من</h3>'+l+'</div>':'')+hh+old};
+function addM(){var v=val('mt'),r=val('pt');if(!v||!r)return;chk();var m=S.money;if(m.miss||m.last===D()||m.n>=360)return;var p=ptsFor(m.n);m.log.push({i:m.n+1,a:A[m.n],t:v,r:r,d:D()});m.n++;m.last=D();m.msg=0;if(m.n>m.best)m.best=m.n;add(p);if(ST[stg(m.n-1)][1]===m.n)toast('🎉 یک مرحله تمام شد · +۳۰ امتیاز پاداش');if(m.n%30===0)toast('📅 مرور ماهانه تمام شد · +۲۰ امتیاز پاداش');go('money')}
+var mcf=0;
+function askR(x){mcf=x;render()}
+function resetM(why){var m=S.money;if(m.n>0){m.hist=m.hist||[];m.hist.push({n:m.n,tot:tot(m.n),d:D(),why:why,log:m.log})}m.n=0;m.last='';m.miss=0;m.msg=0;m.log=[];if(why!=='done')m.resets++;mcf=0;save();go('money')}
+function restartM(){resetM('done')}
+V.goals=function(){var t=day(),vr=t.vr>0?t.vr:60,part=!t.viz&&vr<60;
+ var has=S.goals.some(function(g){return g.d===D()}),l=S.goals.map(function(g,i){return {g:g,i:i}}).reverse().map(function(o){var g=o.g,i=o.i;if(ged===i)return '<div class="item"><textarea id="ge">'+esc(g.t)+'</textarea><button class="btn" onclick="saveG('+i+')">ذخیره</button> <button class="btn" style="background:var(--inp);color:var(--tx);box-shadow:none" onclick="askG(-1)">انصراف</button></div>';return '<div class="item">🎯 '+esc(g.t)+'<div class="mut">'+g.d+(g.e?' · ویرایش‌شده':'')+' <a href="#" style="color:var(--pr2);text-decoration:none;font-weight:700" onclick="askG('+i+');return false">✏️ ویرایش</a></div></div>'}).join('');
+ return ''+(has?'<div class="card hero"><div class="big">🎯</div><h3>هدف امروز ثبت شد ✓</h3><p class="mut" style="margin:0">امتیاز امروز را گرفتی. هر وقت خواستی از لیست پایین ویرایشش کن؛ ویرایش امتیاز اضافه نمی‌دهد.</p></div>':'<div class="card"><h3>هدف تازه</h3><textarea id="gt" placeholder="هدفت را مثل اینکه اتفاق افتاده بنویس: من… "></textarea><button class="btn full" onclick="addGoal()">ثبت هدف (+۱۰)</button><p class="mut" style="margin:6px 0 0;font-size:12px">روزی یک هدف با امتیاز ثبت می‌شود و بعداً قابل ویرایش است.</p></div>')+'<div class="card" style="text-align:center"><h3>تصویرسازی ۶۰ ثانیه‌ای</h3><p class="mut">چشمانت را ببند و زندگی‌ای که می‌خواهی را با همه حس‌هایش ببین.</p><div class="orb"></div><div id="tm" style="font-size:22px;font-weight:800">'+(t.viz?'امروز انجام شد ✓':faN(vr))+'</div>'+(t.viz?'<p class="mut" style="margin:8px 0 0">تصویرسازی روزی یک بار امتیاز دارد و از ساعت ۱۲ شب دوباره فعال می‌شود.</p>':'<br><div id="vb"><button class="btn" onclick="startViz()">'+(part?'ادامه':'شروع تصویرسازی')+'</button>'+(part?' <button class="btn" style="background:var(--inp);color:var(--tx);box-shadow:none" onclick="resetViz()">شروع مجدد</button>':'')+'</div>')+'</div>'+(l?'<div class="card"><h3>اهداف من</h3>'+l+'</div>':'')};
+var ged=-1;
+function askG(i){ged=i;render()}
+function saveG(i){var v=val('ge');if(!v||!S.goals[i])return;S.goals[i].t=v;S.goals[i].e=D();ged=-1;save();render()}
+function addGoal(){var v=val('gt'),t=day();if(!v||S.goals.some(function(g){return g.d===D()}))return;S.goals.push({t:v,d:D()});t.gc=1;add(10);go('goals')}
+var AC=null;
+function tone(f,t,d,v){if(!AC)return;var n=AC.currentTime+t,o=AC.createOscillator(),g=AC.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0.0001,n);g.gain.exponentialRampToValueAtTime(v,n+0.03);g.gain.exponentialRampToValueAtTime(0.0001,n+d);o.connect(g);g.connect(AC.destination);o.start(n);o.stop(n+d+0.05)}
+function chime(){[523,659,784,1046].forEach(function(f,i){tone(f,i*0.7,2.2,0.35)});try{if(navigator.vibrate)navigator.vibrate([300,150,300])}catch(e){}}
+function startViz(){var t=day(),e=document.getElementById('tm');if(t.viz||vizRun)return;var s=t.vr>0?t.vr:60;vizRun=true;document.getElementById('vb').style.display='none';e.textContent=faN(s);try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume();tone(440,0,1.6,0.25)}catch(x){}clearInterval(timer);timer=setInterval(function(){s--;t.vr=s;e.textContent=faN(Math.max(s,0));save();if(s<=0){clearInterval(timer);vizRun=false;chime();t.viz=1;add(15);go('goals')}},1000)}
+function resetViz(){var t=day();if(t.viz)return;t.vr=60;save();go('goals')}
+var dsel=0,dmode='';
+function fdays(d){var n=Math.round((new Date(d+'T00:00:00')-new Date(D()+'T00:00:00'))/864e5);return n<0?'موعد '+faN(-n)+' روز گذشته':n===0?'موعد امروز است':faN(n)+' روز مانده'}
+function wcard(w){var sel=dsel===w.id,lg=w.log[w.log.length-1],g='background:var(--inp);color:var(--tx);box-shadow:none',pn='margin-top:10px;padding:10px;border:1.5px dashed var(--bd);border-radius:14px';
+ var panel='';
+ if(sel&&dmode==='u')panel='<div style="'+pn+'"><input id="wtt" value="'+esc(w.t)+'" placeholder="عنوان"><div style="margin:8px 0 2px;font-size:13px">میزان پیشرفت واقعی: <b id="pv">'+faN(w.p)+'٪</b></div><input id="wp" type="range" min="0" max="100" step="5" value="'+w.p+'" oninput="document.getElementById(\'pv\').textContent=faN(this.value)+\'٪\'"><input id="wn2" placeholder="چه کاری انجام دادی؟ (یادداشت پیشرفت)"><input id="wx" value="'+esc(w.n||'')+'" placeholder="قدم بعدی"><div class="mut" style="font-size:12px">تاریخ رسیدن</div><input id="wd2" type="date" value="'+(w.due||'')+'"><button class="btn" onclick="saveW('+w.id+')">ذخیره</button> <button class="btn" style="'+g+'" onclick="askW(0,\'\')">انصراف</button></div>';
+ else if(sel&&dmode==='d')panel='<div style="'+pn+'"><p style="margin:0 0 8px;font-size:13px">این مورد و تاریخچه‌اش از دفترچه حذف شود؟ امتیازهای گرفته‌شده برنمی‌گردد.</p><button class="btn" onclick="delW('+w.id+')">بله، حذف</button> <button class="btn" style="'+g+'" onclick="askW(0,\'\')">انصراف</button></div>';
+ else panel='<div style="margin-top:10px"><button class="btn" onclick="askW('+w.id+',\'u\')">ثبت پیشرفت / ویرایش</button> <button class="btn" style="'+g+'" onclick="askW('+w.id+',\'d\')">حذف</button></div>';
+ return '<div class="card" style="margin-top:12px"><b>'+(w.p>=100?'🏆 ':w.k==='wish'?'✨ ':'🎯 ')+esc(w.t)+'</b><div class="bar" style="margin:8px 0 4px"><div style="width:'+w.p+'%"></div></div><div class="mut" style="font-size:13px">'+faN(w.p)+'٪ پیشرفت'+(w.due?' · '+w.due+(w.p<100?' · '+fdays(w.due):''):'')+'</div>'+(w.n&&w.p<100?'<div style="margin-top:6px;font-size:14px">👣 قدم بعدی: '+esc(w.n)+'</div>':'')+(lg&&lg.n?'<div class="mut" style="font-size:12px;margin-top:4px">آخرین پیشرفت ('+lg.d+'): '+esc(lg.n)+'</div>':'')+panel+'</div>'}
+V.dreams=function(){var op=S.wl.filter(function(w){return w.p<100}).sort(function(a,b){return (a.due||'9')<(b.due||'9')?-1:1}),dn=S.wl.filter(function(w){return w.p>=100});
+ return '<div class="card"><h3>آرزو یا هدف تازه</h3><select id="wk"><option value="goal">🎯 هدف</option><option value="wish">✨ آرزو</option></select><textarea id="wt" placeholder="چه چیزی می‌خواهی؟ مثل اینکه اتفاق افتاده بنویس…"></textarea><div class="mut" style="font-size:12px">تاریخ رسیدن</div><input id="wd" type="date"><input id="wn" placeholder="قدم بعدی (کوچک و مشخص)"><button class="btn full" onclick="addW()">ثبت در دفترچه (+۱۰)</button><p class="mut" style="margin:6px 0 0;font-size:12px">امتیاز ثبت تازه روزی یک بار است. پیشرفت واقعی روزی یک بار ۱۰ امتیاز و رسیدن به ۱۰۰٪ برای هر مورد ۵۰ امتیاز دارد.</p></div>'+(op.length?op.map(wcard).join(''):'<div class="card"><p class="mut" style="margin:0">هنوز آرزو یا هدفی در جریان نداری. اولین مورد را بالا بنویس.</p></div>')+(dn.length?'<h3 style="margin:18px 4px 0">رسیده‌ها 🏆</h3>'+dn.map(wcard).join(''):'')};
+function askW(id,m){dsel=id;dmode=m;render()}
+function addW(){var t=val('wt');if(!t)return;var d=day();S.wl.push({id:Date.now(),k:val('wk'),t:t,due:val('wd'),n:val('wn'),p:0,log:[],c:D()});if(!d.wc){d.wc=1;add(10)}else save();go('dreams')}
+function saveW(id){var w=S.wl.filter(function(x){return x.id===id})[0];if(!w)return;var np=Number(document.getElementById('wp').value),nt=val('wn2'),up=np>w.p,d=day(),pts=0;
+ w.t=val('wtt')||w.t;w.n=val('wx');w.due=val('wd2');
+ if(np!==w.p||nt)w.log.push({d:D(),p:np,n:nt});
+ if(up&&!d.wu){d.wu=1;pts+=10}
+ w.p=np;if(np>=100&&!w.paid){w.paid=1;pts+=50;toast('🏆 به هدفت رسیدی! +۵۰ امتیاز')}
+ dsel=0;dmode='';if(pts)add(pts);else save();go('dreams')}
+function delW(id){S.wl=S.wl.filter(function(x){return x.id!==id});dsel=0;dmode='';save();go('dreams')}
+V.journal=function(){var today=S.journal.filter(function(j){return j.d===D()}).length;
+ var l=S.journal.slice().reverse().map(function(j){return '<div class="item">🏆 '+esc(j.t)+'<div class="mut">'+j.d+'</div></div>'}).join('')||'<p class="mut">هنوز چیزی ثبت نشده. اولین پیروزی کوچکت را بنویس.</p>';
+ var form=today>=3?'<div class="card hero"><div class="big">🏆</div><h3>امروز ۳ دستاورد ثبت کردی</h3><p class="mut" style="margin:0">از ساعت ۱۲ شب دوباره می‌توانی بنویسی.</p></div>':'<div class="card"><h3>یک دستاورد ثبت کن</h3><p class="mut" style="margin:0">امروز '+(3-today).toLocaleString('fa-IR')+' مورد دیگر می‌توانی ثبت کنی.</p><textarea id="jt" placeholder="امروز چه کار خوبی انجام دادم؟"></textarea><button class="btn full" onclick="addJ()">ثبت دستاورد (+۱۰)</button></div>';
+ return form+'<div class="card"><h3>دستاوردهای من</h3>'+l+'</div>'};
+function addJ(){var v=val('jt');if(!v)return;if(S.journal.filter(function(j){return j.d===D()}).length>=3)return;S.journal.push({t:v,d:D()});add(10);go('journal')}
+V.about=function(){return '<div class="card"><h3>فراوانیو</h3><p>بازی روزانه برای ساختن ذهنیت فراوانی با قدردانی، هدف‌گذاری، تصویرسازی و ثبت پیشرفت.</p><p class="mut">نسخه ۱٫۰</p></div><div class="card"><h3>توسعه‌دهنده</h3><p style="margin:0">SM SADR</p><p class="mut">ارتباط با توسعه‌دهنده از طریق تلگرام</p><a class="btn full" href="https://t.me/SMS_TRADE" target="_blank" rel="noopener">تماس در تلگرام</a></div><div class="card"><p class="mut" style="margin:0">داده‌های تو فقط روی همین دستگاه ذخیره می‌شود.</p></div>'};
+V.smsfx=function(){return '<div class="card hero"><div class="big">📈</div><h2>SMS_FX</h2><p class="mut">کانال کپی‌ترید SMS_FX در تلگرام. برای آشنایی و دنبال‌کردن مستقیم، از دکمه زیر وارد کانال شو.</p><a class="btn full" href="https://t.me/SMS_FX" target="_blank" rel="noopener">ورود به کانال تلگرام</a></div><div class="card"><p class="mut" style="margin:0;font-size:12px">معاملات فارکس و کپی‌ترید ریسک مالی دارند و سود تضمینی وجود ندارد. با سرمایه‌ای که می‌توانی ریسکش را بپذیری وارد شو.</p></div>'};
+var ST=[['شناخت ذهنیت فعلی',50],['قدردانی و توجه به داشته‌ها',120],['اصلاح باورهای محدودکننده',190],['هدف‌گذاری و نظم شخصی',260],['شناخت فرصت‌ها و تصمیم‌گیری',310],['تثبیت عادت‌های فراوانی',360]];
+var P=[['نقطهٔ شروع','ذهنیت فعلی‌ات دربارهٔ پول را در چند جمله بنویس. اولین حسی که با شنیدن واژهٔ «پول» می‌آید چیست؟'],['الگوهای تکراری','دو تصمیم مالی یا کاری اخیرت را بنویس و بگو پشتشان چه فکری بود.'],['تصویر امروز','زندگی امروزت را از ۱ تا ۱۰ نمره بده و بنویس اگر یک نمره بالاتر بود چه چیزی فرق می‌کرد.'],['سه داشتهٔ ساده','سه چیزی را که همین حالا داری و قدرش را کم می‌دانی بنویس.'],['قدردانی از آدم‌ها','از یک نفر که روی زندگی‌ات اثر مثبت گذاشته نام ببر و بنویس چه کاری برایت کرده است.'],['فراوانی پنهان','یک منبع فراوانی که هر روز در دسترس توست بنویس (زمان، سلامتی، دانش، رابطه…).'],['قدردانی از خودت','چند جمله برای قدردانی از خودت و مسیری که تا اینجا آمده‌ای بنویس.'],['شناسایی باور','یکی از باورهای محدودکنندهٔ خودت دربارهٔ پول یا موفقیت را بنویس.'],['ریشهٔ باور','این باور را از کجا آورده‌ای؟ از چه کسی یا کدام اتفاق؟'],['شواهد مخالف','سه مورد از زندگی خودت که خلاف این باور است بنویس.'],['باور جایگزین','باور تازه‌ای که می‌خواهی جایش بنشیند را بنویس و یک کار کوچک بر پایهٔ آن انتخاب کن.'],['هدف روشن','یک هدف مشخص و قابل‌سنجش برای ۹۰ روز آینده بنویس.'],['قدم‌های کوچک','هدفت را به سه قدم کوچک تقسیم کن.'],['برنامهٔ هفته','روز و ساعت انجام قدم اول را برای همین هفته مشخص کن.'],['مانع و راه‌حل','بزرگ‌ترین مانع نظم شخصی‌ات چیست و چه راه‌حلی برایش داری؟'],['فرصت‌یابی','سه فرصت اطرافت (کاری، آموزشی، ارتباطی) که هنوز استفاده نکرده‌ای بنویس.'],['سنجش تصمیم','یک تصمیم پیش‌رو را با سه سؤال بسنج: هزینه‌اش چیست؟ سودش چیست؟ ریسکش چیست؟'],['تصمیم نهایی','یکی از فرصت‌ها را انتخاب کن و اولین اقدامش را بنویس.'],['عادت‌های هسته','سه عادت روزانه‌ای که می‌خواهی ادامه بدهی را بنویس.'],['محرک و پاداش','برای هر عادت یک زمان ثابت و یک پاداش کوچک تعیین کن.'],['جشن و تعهد','از این مسیر تا اینجا چه آموختی؟ و برای ادامه به چه چیزی متعهد می‌شوی؟']];
+function faN(n){return Number(n).toLocaleString('fa-IR')}
+function stg(n){for(var i=0;i<ST.length;i++)if(n<ST[i][1])return i;return ST.length-1}
+function ptsFor(n){var p=30;for(var i=0;i<ST.length;i++)if(ST[i][1]===n+1)p+=30;if((n+1)%30===0)p+=20;return p}
+function streak(){var st=0,d=new Date();for(;;){var k=D(d);if(S.days[k]&&S.days[k].act){st++;d.setDate(d.getDate()-1)}else if(st===0&&k===D()){d.setDate(d.getDate()-1)}else break}return st}
+var BG=[{id:'gr',n:'نشان سپاسگزاری',e:'🙏',p:25,d:'پایان مرحلهٔ قدردانی (روز ۱۲۰ مسیر)',ok:function(s){return s>=ST[1][1]}},
+{id:'gw',n:'نشان ذهنیت رشد',e:'🌱',p:25,d:'پایان مرحلهٔ اصلاح باورها (روز ۱۹۰ مسیر)',ok:function(s){return s>=ST[2][1]}},
+{id:'ds',n:'نشان نظم و استمرار',e:'🎯',p:25,d:'پایان مرحلهٔ هدف‌گذاری (روز ۲۶۰ مسیر)',ok:function(s){return s>=ST[3][1]}},
+{id:'dc',n:'نشان تصمیم‌گیری هوشمندانه',e:'🧠',p:25,d:'پایان مرحلهٔ فرصت‌ها و تصمیم (روز ۳۱۰ مسیر)',ok:function(s){return s>=ST[4][1]}},
+{id:'s7',n:'نشان ۷ روز استمرار',e:'🔥',p:50,d:'۷ روز پیاپی در مسیر',ok:function(s){return s>=7}},
+{id:'s30',n:'نشان ۳۰ روز استمرار',e:'⭐',p:75,d:'۳۰ روز پیاپی در مسیر',ok:function(s){return s>=30}},
+{id:'s180',n:'نشان ۱۸۰ روز استمرار',e:'💎',p:150,d:'۱۸۰ روز پیاپی در مسیر',ok:function(s){return s>=180}},
+{id:'s360',n:'نشان ۳۶۰ روز استمرار',e:'👑',p:300,d:'۳۶۰ روز پیاپی؛ پایان مسیر',ok:function(s){return s>=360}}];
+function toast(h){var c=document.getElementById('ts');if(!c){c=document.createElement('div');c.id='ts';document.body.appendChild(c)}var e=document.createElement('div');e.className='toast';e.textContent=h;c.appendChild(e);setTimeout(function(){e.remove()},4200)}
+function checkB(){var s=S.money.n,n=0;BG.forEach(function(b){if(!S.bd[b.id]&&b.ok(s)){S.bd[b.id]=D();S.pts+=b.p;n++;toast('🏅 '+b.n+' · +'+faN(b.p)+' امتیاز')}});if(n)save()}
+var PS=[P.slice(0,3),P.slice(3,7),P.slice(7,11),P.slice(11,15),P.slice(15,18),P.slice(18,21)];
+PS[0]=PS[0].concat([['حس غالب امروز','امروز بیشتر با چه احساسی اداره شدی؟ آن حس به تصمیم‌هایت کمک کرد یا ضرر زد؟'],['گفتگوی درونی','یک جملهٔ تکراری که امروز به خودت گفتی بنویس. اگر دوستت می‌گفت، چه جوابی می‌دادی؟'],['مقایسه با دیروز','امروزت با دیروز چه تفاوتی داشت؟ یک تغییر کوچک را ثبت کن.']]);
+PS[1]=PS[1].concat([['لحظهٔ خوب امروز','یک لحظهٔ خوب امروز را با جزئیات بنویس؛ چه دیدی، شنیدی و حس کردی؟'],['قدردانی از چیز معمولی','از چیزی که هر روز استفاده می‌کنی و کم به آن توجه می‌کنی قدردانی کن.']]);
+PS[2]=PS[2].concat([['ردیابی باور امروز','امروز کجا باور محدودکننده‌ات سر راهت آمد؟ چه کار کردی؟'],['اگر ترس نبود','اگر ترس نبود امروز چه کاری انجام می‌دادی؟ یک قدم کوچکش را بنویس.']]);
+PS[3]=PS[3].concat([['مرور قدم دیروز','قدمی که برای هدفت برداشتی چه نتیجه‌ای داشت؟ چه چیزی را عوض می‌کنی؟'],['اولویت امروز','مهم‌ترین کار امروز برای هدفت چیست و چرا؟']]);
+PS[4]=PS[4].concat([['داده‌های تصمیم','برای یک تصمیم امروز چه اطلاعاتی جمع کردی؟'],['درس از تصمیم گذشته','یک تصمیم گذشته را مرور کن: چه چیزی را درست و چه چیزی را نادرست دیدی؟'],['فرصت امروز','امروز چه فرصتی دیدی و چه واکنشی نشان دادی؟']]);
+PS[5]=PS[5].concat([['عادت امروز','کدام عادت‌هایت را امروز انجام دادی و کدام را نه؟ چرا؟'],['زنجیرهٔ استمرار','چه چیزی کمک کرد امروز هم ادامه بدهی؟ برای فردا چه می‌کنی؟'],['هویت تازه','امروز چطور مثل فردی با ذهنیت فراوانی رفتار کردی؟']]);
+var REV=['مرور ماهانه','یک ماه گذشته: سه پیروزی، سه درس و یک تصمیم برای ماه بعد را بنویس.'];
+function taskFor(n){if((n+1)%30===0)return REV;var s=stg(n);return PS[s][(n-(s?ST[s-1][1]:0))%PS[s].length]}
+V.badges=function(){var s=S.money.n,k=Object.keys(S.bd).length;
+ return '<div class="card"><h3>نشان‌های من</h3><p class="mut" style="margin:0">'+faN(k)+' از '+faN(BG.length)+' نشان · روز پیاپی فعلی: '+faN(s)+'</p></div><div class="stats">'+BG.map(function(b){var d=S.bd[b.id];return '<div class="stat bdg'+(d?'':' off')+'"><div style="font-size:36px;line-height:1.4">'+b.e+'</div><b style="font-size:13px;color:var(--tx);line-height:1.6">'+b.n+'</b><span class="mut" style="font-size:12px">'+(d?'کسب شد · '+d:b.d)+'</span><div class="mut" style="font-size:12px">+'+faN(b.p)+' امتیاز</div></div>'}).join('')+'</div>'};
+var lastD=D(),vizRun=false;
+function newDay(){if(D()===lastD||vizRun)return;lastD=D();var busy=[].some.call(document.querySelectorAll('textarea,input'),function(x){return x.value});if(!busy)render()}
+setInterval(newDay,15000);
+document.addEventListener('visibilitychange',function(){if(!document.hidden)newDay()});
+render();
+</script>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}</script>
+</body>
+</html>
